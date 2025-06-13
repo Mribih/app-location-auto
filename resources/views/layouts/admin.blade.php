@@ -15,7 +15,7 @@
             <a href="{{ route('admin.dashboard') }}" class="block px-3 py-2 rounded hover:bg-gray-100 {{ request()->routeIs('admin.dashboard') ? 'bg-gray-200 font-semibold' : '' }}">
                 📊 Dashboard
             </a>
-            <a href="#" class="block px-3 py-2 rounded hover:bg-gray-100">
+            <a href="{{ route('admin.voitures.index') }}" class="block px-3 py-2 rounded hover:bg-gray-100">
                 🚗 Voitures
             </a>
             <a href="#" class="block px-3 py-2 rounded hover:bg-gray-100">

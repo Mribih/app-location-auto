@@ -25,8 +25,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/mes-reservations', [ReservationController::class, 'index'])->name('reservations.index');
     Route::delete('/reservations/{reservation}', [ReservationController::class, 'destroy'])->name('reservations.destroy');
 
-    Route::middleware('admin')->group(function () {
-        Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+    Route::middleware('admin')->prefix('dashboard')->name('admin.')->group(function () {
+        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+        Route::resource('voitures', \App\Http\Controllers\Admin\VoitureController::class);
     });
 });
 

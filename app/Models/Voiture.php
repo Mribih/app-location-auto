@@ -9,6 +9,15 @@ class Voiture extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'marque',
+        'modele',
+        'prix_journalier',
+        'disponible',
+        'image',
+    ];
+
+
     public function reservations()
     {
         return $this->hasMany(Reservation::class);
