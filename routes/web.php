@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\VoitureController;
@@ -25,7 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/reservations/{reservation}', [ReservationController::class, 'destroy'])->name('reservations.destroy');
 
     Route::middleware('admin')->group(function () {
-    
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
     });
 });
 
