@@ -21,6 +21,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/voitures/{voiture}/reserver', [ReservationController::class, 'create'])->name('reservations.create');
     Route::post('/voitures/{voiture}/reserver', [ReservationController::class, 'store'])->name('reservations.store');
 
+    Route::get('/mes-reservations', [ReservationController::class, 'index'])->name('reservations.index');
+    Route::delete('/reservations/{reservation}', [ReservationController::class, 'destroy'])->name('reservations.destroy');
+
     Route::middleware('admin')->group(function () {
     
     });

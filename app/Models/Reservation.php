@@ -17,4 +17,9 @@ class Reservation extends Model
         'statut',
     ];
 
+    public function voiture()
+    {
+        return $this->belongsTo(Voiture::class);
+    }
+
 }

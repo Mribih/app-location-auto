@@ -8,6 +8,16 @@ use Illuminate\Http\Request;
 
 class ReservationController extends Controller
 {
+    public function index()
+    {
+        $reservations = Reservation::with('voiture')
+            ->where('user_id', auth()->id())
+            ->latest()
+            ->paginate(5);
+
+        return view('reservations.index', compact('reservations'));
+    }
+
     public function create(Voiture $voiture)
     {
         return view('reservations.create', compact('voiture'));
@@ -28,6 +38,17 @@ class ReservationController extends Controller
         ]);
 
         return redirect()->route('voitures.index')->with('success', 'Réservation effectuée avec succès.');
+    }
+
+    public function destroy(Reservation $reservation)
+    {
+        if ($reservation->user_id !== auth()->id()) {
+            abort(403);
+        }
+
+        $reservation->delete();
+
+        return redirect()->route('reservations.index')->with('success', 'Réservation annulée avec succès.');
     }
 
 }
