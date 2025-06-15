@@ -18,10 +18,10 @@
             <a href="{{ route('admin.voitures.index') }}" class="block px-3 py-2 rounded hover:bg-gray-100">
                 🚗 Voitures
             </a>
-            <a href="#" class="block px-3 py-2 rounded hover:bg-gray-100">
+            <a href="{{ route('admin.users.index') }}" class="block px-3 py-2 rounded hover:bg-gray-100">
                 👥 Utilisateurs
             </a>
-            <a href="#" class="block px-3 py-2 rounded hover:bg-gray-100">
+            <a href="{{ route('admin.reservations.index') }}" class="block px-3 py-2 rounded hover:bg-gray-100">
                 📆 Réservations
             </a>
             <form method="POST" action="{{ route('logout') }}" class="mt-4">

@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
 
         Route::resource('voitures', \App\Http\Controllers\Admin\VoitureController::class);
         Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
+        Route::resource('reservations', \App\Http\Controllers\Admin\ReservationController::class)->only(['index', 'show', 'update']);
     });
 });
 
