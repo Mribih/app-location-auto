@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
         Route::resource('voitures', \App\Http\Controllers\Admin\VoitureController::class);
+        Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
     });
 });
 
